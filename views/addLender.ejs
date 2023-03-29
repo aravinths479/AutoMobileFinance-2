@@ -1,0 +1,196 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+	<br><br><br>
+
+<section>
+	<div class="container py-4">
+	  <div class="row">
+		<div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+		  <h3 class="text-center">Add Lender Data</h3>
+		  <br>
+		  
+
+		  <form role="form" action="/lender/add-lender" id="contact-form" method="post" autocomplete="off">
+
+			<div class="card-body">
+			  <div class="row">
+				<%- include ("./partials/messages"); %>
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Personal Details</h6>
+				</div><br>
+				<div class="col-md-6">
+				  <div class="input-group input-group-dynamic mb-4">
+					<label class="form-label">Vehicle Number</label>
+					<input class="form-control" name="vnum" aria-label="First Name..." type="text" >
+				  </div>
+				</div>
+				<div class="col-md-6 ps-2">
+				  <div class="input-group input-group-dynamic">
+					<label class="form-label">Name</label>
+					<input type="text" class="form-control" name="name" placeholder="" aria-label="Last Name..." >
+				  </div>
+				</div>
+				<div class="col-md-6 ps-2">
+					<div class="input-group input-group-dynamic">
+					  <label class="form-label">Phone</label>
+					  <input type="text" class="form-control" name="phone" placeholder="" aria-label="Last Name..." >
+					</div>
+				  </div>
+				  <div class="col-md-6 ps-2">
+					<div class="input-group input-group-dynamic">
+					  <label class="form-label">Aadhar</label>
+					  <input type="text" class="form-control" name="aadhar" placeholder="" aria-label="Last Name..." >
+					</div>
+				  </div>
+			  </div>
+			  	<br>
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Address</h6>
+				</div><br>
+				<div class="col-md-6">
+				  <div class="input-group input-group-dynamic mb-4">
+					<label class="form-label">Street</label>
+					<input class="form-control" name="street" aria-label="First Name..." type="text" >
+				  </div>
+				</div>
+				<div class="col-md-6 ps-2">
+				  <div class="input-group input-group-dynamic">
+					<label class="form-label">City</label>
+					<input type="text" class="form-control" name="city" placeholder="" aria-label="Last Name..." >
+				  </div>
+				</div>
+				<div class="col-md-6 ps-2">
+					<div class="input-group input-group-dynamic">
+					  <label class="form-label">State</label>
+					  <input type="text" class="form-control" name="state" placeholder="" aria-label="Last Name..." >
+					</div>
+				  </div>
+				  <div class="col-md-6 ps-2">
+					<div class="input-group input-group-dynamic">
+					  <label class="form-label">Postel code</label>
+					  <input type="text" class="form-control" name="zip" placeholder="" aria-label="Last Name..." >
+					</div>
+				  </div>
+			  </div>
+			  <br>
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Loan Details</h6>
+				</div><br><br>
+				<div class="col-md-6">
+				  <div class="input-group input-group-dynamic mb-4">
+					<label class="form-label">Loan Amount</label>
+					<input class="form-control" name="loan_amt" id="principal" oninput="calculate()" aria-label="First Name..." type="text" >
+				  </div>
+				</div>
+				<div class="col-md-6 ps-2">
+				  <div class="input-group input-group-dynamic">
+					<label class="form-label">Duration</label>
+					<input type="text" class="form-control" name="duration" id="rate" oninput="calculate()" placeholder="" aria-label="Last Name..." >
+				  </div>
+				</div>
+			
+				  <div class="container">
+					<div class="row">
+					  <div class="col-md">
+						<select class="form-select w-75 p-2 outline " name="interest" id="time" oninput="calculate()" aria-label="Default select example">
+							<option selected >Select Interest Rate</option>
+							<option  value="1">1 %</option>
+							<option value="2">2 %</option>
+							<option value="3">3 %</option>
+							<option value="3">4 %</option>
+							<option value="3">5 %</option>
+							<option value="3">6 %</option>
+						</select>
+					  </div>
+					  <div class="col-md">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="check_leaf" value="" id="fcustomCheck1" >
+							<label class="custom-control-label" for="customCheck1">Check Leaf Submitted</label>
+						  </div>
+					  </div>
+
+					</div>
+				  </div>
+				
+			  </div>
+			  <br>
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Data</h6>
+				</div><br>
+				
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="mb-3">
+						<p >Total Interest   : ₹  <span id="interest"></span></p>
+						<p >Total Amount    : ₹  <span id="due"></span></p>
+						<!-- <p >Interest For Total Duration : ₹  <span id="int-t-d"></span></p> -->
+						<!-- <label for="phone" >Interest Per Month  ₹ : <p id="interest"></p>  </label> <br> -->
+						
+					</div>
+				</div>
+				
+			  </div>
+			  <br>
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Files</h6>
+				</div><br>
+				
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="mb-3">
+						<label for="formFileMultiple" class="form-label ">Aadhar </label>
+						<input class="form-control " type="file" id="formFileMultiple" accept="image/*,.pdf" multiple>
+						
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="mb-3">
+						<label for="formFileMultiple" class="form-label">RC Book</label>
+						<input class="form-control" type="file" id="formFileMultiple" accept="image/*,.pdf" multiple>
+					</div>
+				</div>
+				
+			  </div>
+
+
+			  
+			  <br><br>
+			  <div class="row">
+				<div class="col-md-12">
+				  <button type="submit" class="btn bg-gradient-dark w-100">Add Lender</button>
+				</div>
+			  </div>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+  <style>
+	input[type=file]{
+		border: 1px solid black;
+		padding: 6px;
+	}
+  </style>
+
+  
+<script>
+    function calculate() {
+        var principal = document.getElementById("principal").value;
+        var rate = document.getElementById("rate").value;
+        var time = document.getElementById("time").value;
+        var interest = (principal * rate * time) / (100*12);
+		var due = parseInt(principal)+parseInt(interest);
+        document.getElementById("interest").innerHTML =" "+ interest;
+		document.getElementById("due").innerHTML =" "+ due;
+		
+      }
+      
+</script>
+
+<%- include('partials/endblock') %>

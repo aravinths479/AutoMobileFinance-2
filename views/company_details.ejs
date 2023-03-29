@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+<br><br><br><br>
+
+
+
+
+<section>
+	<div class="container py-4">
+	  <div class="row">
+		<div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+		  <h3 class="text-center">Manage Company Data</h3>
+
+		  <form role="form" action="/users/update_account" method="post" id="contact-form" autocomplete="off">
+
+			<div class="card-body">
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Personal Details</h6>
+				</div><br>
+				  <div class="input-group input-group-static mb-4">
+					<label>Comapny Name</label>
+					<input type="text" value="<%= companyName %>" name="companyName" class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>Email Address</label>
+					<input type="text" value="<%= email %>"   disabled class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>Phone Number</label>
+					<input type="text" value="<%= pnum %>" name="pnum" class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>TIN Number</label>
+					<input type="text" value="<%= tin %>" name="tin" class="form-control">
+				  </div>
+				  
+			  </div>
+
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Bank Details</h6>
+				</div><br>
+				  <div class="input-group input-group-static mb-4">
+					<label>Account Number</label>
+					<input type="text" value="<%= accno %>" name="accno" class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>IFSC  code</label>
+					<input type="text" value="<%= ifsc %>" name="ifsc"  class="form-control">
+				  </div>
+			  </div>
+			  
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Address</h6>
+				</div><br>
+				  <div class="input-group input-group-static mb-4">
+					<label>Street</label>
+					<input type="text" value="<%= street %>" name="street" class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>City</label>
+					<input type="text" value="<%= city %>" name="city"  class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>State</label>
+					<input type="text" value="<%= state %>" name="state"  class="form-control">
+				  </div>
+				  <div class="input-group input-group-static mb-4">
+					<label>ZIP Code</label>
+					<input type="text" value="<%= zip %>" name="zip"  class="form-control">
+				  </div>
+			  </div>
+			 
+
+
+			  
+			  <br><br>
+			  <div class="row">
+				<div class="col-md-12">
+				  <button type="submit" class="btn bg-gradient-dark w-100">Save Changes</button>
+				</div>
+			  </div>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+
+<%- include('partials/endblock') %>
