@@ -181,14 +181,11 @@
   
 <script>
     function calculate() {
-        var principal = document.getElementById("principal").value;
+            var principal = document.getElementById("principal").value;
         var rate = document.getElementById("rate").value;
         var time = document.getElementById("time").value;
-        var interest = (principal * rate * time) / (100*12);
-		var due = parseInt(principal)+parseInt(interest);
-        document.getElementById("interest").innerHTML =" "+ interest;
-		document.getElementById("due").innerHTML =" "+ due;
-		
+        var interest = (principal * rate * time) / 100;
+        document.getElementById("interest").innerHTML = interest;
       }
       
 </script>
