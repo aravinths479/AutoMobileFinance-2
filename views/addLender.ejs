@@ -125,10 +125,10 @@
 				
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 					<div class="mb-3">
-						<p >Total Interest   : ₹  <span id="interest"></span></p>
+						<p >Interest Per Month     : ₹     <span id="intepermonth">  </span>  </p>
+						<p > Total Interest    : ₹  <span id="interest"></span></p>
 						<p >Total Amount    : ₹  <span id="due"></span></p>
-						<!-- <p >Interest For Total Duration : ₹  <span id="int-t-d"></span></p> -->
-						<!-- <label for="phone" >Interest Per Month  ₹ : <p id="interest"></p>  </label> <br> -->
+						<p >Due Amount    : ₹     <span id="Duee">  </span>  </p>
 						
 					</div>
 				</div>
@@ -181,12 +181,22 @@
   
 <script>
     function calculate() {
-            var principal = document.getElementById("principal").value;
+        var principal = document.getElementById("principal").value;
         var rate = document.getElementById("rate").value;
-        var time = document.getElementById("time").value;
-        var interest = (principal * rate * time) / 100;
-        document.getElementById("interest").innerHTML = interest;
-      }
+        var time = parseInt(document.getElementById("time").value);
+        var interest = (principal * rate * time) / (100);
+        // var prin = (principal / rate)/ time;
+        // var inte = (interest / time);
+        // var dueamount = (due / time)
+        var due =parseInt( parseInt(principal)+parseInt(interest));
+        var times=parseInt(document.getElementById('duration'))
+        var dueamount = due/rate;
+        var interestpermonth = interest/rate;
+        document.getElementById("interest").innerHTML =" "+ interest;
+        document.getElementById("due").innerHTML =" "+ due;
+        document.getElementById("Duee").innerHTML =" "+ dueamount;
+        document.getElementById("intepermonth").innerHTML =" "+ interestpermonth;
+    }
       
 </script>
 
