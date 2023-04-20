@@ -1,14 +1,64 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body text-center">
-      <h1><span class="material-symbols-outlined">
-        directions_car
-        </span></h1>
-      <p>Create an account or login</p>
-      <a href="/users/register" class="btn btn-primary btn-block mb-2"
-        >Register</a
-      >
-      <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
+<%- include('partials/header') %>
+
+<%- include('partials/welcomenav') %>
+
+<br><br><br><br><br><br>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner mb-4">
+    <div class="carousel-item">
+      <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1-SLYcLAqYVNCdXo56AAygrZv7cPFBhPAdw&usqp=CAU');">
+        <span class="mask bg-gradient-dark"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 my-auto">
+      
+              <h1 class="text-white fadeIn2 fadeInBottom">Auto loans</h1>
+              <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">We offer financing for a wide range of new and used vehicles, with flexible terms and competitive rates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="carousel-item">
+      <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://www.ridetime.ca/wp-content/uploads/2018/04/shutterstock_230306026.jpg');">
+        <span class="mask bg-gradient-dark"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 my-auto">
+              
+              <h1 class="text-white fadeIn2 fadeInBottom">Why Choose Us?</h1>
+              <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Competitive rates - Our interest rates are among the most competitive in the industry, meaning you'll save money over the life of your loan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item active">
+      <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://www.globalautosales.ca/wp-content/uploads/2022/03/auto-financing.jpg');">
+        <span class="mask bg-gradient-dark"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 my-auto">
+             
+              <h1 class="text-white fadeIn2 fadeInBottom">Our Commitment to You</h1>
+              <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Flexibility - We understand that everyone's financial situation is unique, so we offer flexible loan terms and repayment options to fit your needs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="min-vh-50 position-absolute w-100 top-0">
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon position-absolute bottom-50" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
 </div>
+
+<%- include('partials/endblock') %>

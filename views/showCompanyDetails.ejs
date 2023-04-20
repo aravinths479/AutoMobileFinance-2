@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+<br><br><br><br>
+<br><br><br><br>
+
+<div class="container">
+    <center><h1 class="display-4">Company Data</h1></center>
+    <br><br>
+    <div class="row">
+        <div class="col-6">
+            <h5>Comapany Name : <span class="lead" ><%= companyName %></span></h5>
+            <br>
+          </div>
+      <div class="col">
+        <h5>Email Address : <span class="lead" ><%= email %></span></h5>
+        <br>
+      </div>
+      
+      <div class="col-6">
+        <h5>Phone Number : <span class="lead" ><%= pnum %></span></h5>
+        <br>
+      </div>
+      <div class="col-6">
+        <h5>PAN : <span class="lead" ><%= tin %></span></h5>
+        <br>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <h3>Bank Details</h3>
+        <br>
+        <div class="col">
+          <h5>Account Number : <span class="lead" ><%= accno %></span></h5>
+          <br>
+        </div>
+        
+        <div class="col-6">
+          <h5>IFSC Code : <span class="lead" ><%= ifsc %></span></h5>
+          <br>
+        </div>
+       
+      </div>
+      <br>
+      <div class="row">
+        <h3>Address</h3>
+        <br>
+        <div class="col-6">
+        <h5>Street : <span class="lead" ><%= street %></span></h5>
+        <br>
+        </div>
+      <div class="col">
+        <h5>City : <span class="lead" ><%= city %></span></h5>
+        <br>
+      </div>
+      
+      <div class="col-6">
+        <h5>State : <span class="lead" ><%= state %></span></h5>
+        <br>
+      </div>
+      <div class="col-6">
+        <h5>ZIP : <span class="lead" ><%= zip %></span></h5>
+        <br>
+      </div>
+      <br><br><br><br>
+     
+    <a href="/users/update_account" class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+        <p class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Manage Company Data</p>
+    </a>
+    <br><br><br>
+    </div>
+    
+  </div>
+
+
+
+
+
+
+<%- include('partials/endblock') %>

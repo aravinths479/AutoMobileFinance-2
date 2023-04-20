@@ -4,7 +4,7 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const indexController = require("../controller/indexController")
 
 // Welcome Page
-router.get('/', forwardAuthenticated, (req, res) => res.render('login'));
+router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard
 router

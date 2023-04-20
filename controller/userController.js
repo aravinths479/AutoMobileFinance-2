@@ -6,9 +6,17 @@ const MongoClient = require('mongodb').MongoClient;
 // Load User model
 const User = require('../models/User');
 
-exports.getAccount = (req,res)=>{
+
+exports.getAccount = (req,res) =>{
   const { companyName, pnum, tin, accno, ifsc ,email,street,city, zip, state } = req.user; 
-  res.render('company_details',{
+  res.render("showCompanyDetails",{
+    companyName:companyName , pnum:pnum, tin:tin, accno:accno, ifsc:ifsc , email:email, city:city ,state: state,zip:zip ,street:street
+  })
+}
+
+exports.getEditAccount = (req,res)=>{
+  const { companyName, pnum, tin, accno, ifsc ,email,street,city, zip, state } = req.user; 
+  res.render('editCompanyDetails',{
     page_name:"account",
     companyName:companyName , pnum:pnum, tin:tin, accno:accno, ifsc:ifsc , email:email, city:city ,state: state,zip:zip ,street:street }
   )

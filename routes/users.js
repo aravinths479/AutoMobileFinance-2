@@ -24,7 +24,8 @@ router.post('/login', userController.postLogin);
 router.get('/logout', userController.getLogout);
 
 //account
-router.get('/account', ensureAuthenticated,userController.getAccount)
+router.get('/account',ensureAuthenticated,userController.getAccount)
+router.get('/update_account', ensureAuthenticated,userController.getEditAccount)
 
 router.post('/update_account',userController.postUpdateAccount)
 module.exports = router;
