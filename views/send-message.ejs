@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+
+<br><br><br>
+<br><br><br>
+
+<div class="container-message">
+    <form action="/send-message/<%= data.pnum %>" method="post"> 
+        <h5>To :</h5>
+        <div >
+            <table class="details">
+                <tr>
+                  <td><h6>Name:</h6></td>
+                  <td><h6> &nbsp; &nbsp; <%= data.name %></h6></td>
+                </tr>
+                <tr>
+                  <td><h6>Vehicle Number:</h6></td>
+                  <td><h6> &nbsp; <%= data.vnum %></h6></td>
+                </tr>   
+                <tr>
+                  <td><h6>Mobile Number:</h6></td>
+                  <td><h6> &nbsp; <%= data.pnum %></h6></td>
+                </tr>
+                <tr>
+                  <td><h6>Loan Amount:</h6></td>
+                  <td><h6> &nbsp; <%= data.loan_amt %></h6></td>
+                </tr>
+                <tr>
+                  <td><h6>Due Date:</h6></td>
+                  <td><h6> &nbsp; <%= data.dueDate %></h6></td>
+                </tr>
+              </table>
+              
+              <br><br>
+
+            <h5>Message : </h5>
+            <br>
+            <div id="msg" class="input-group input-group-dynamic msg details">
+                <textarea class="form-control" rows="6" name="msg"  spellcheck="false">
+Your Loan for Vehicle Number : <%= data.vnum %>.
+Your Loan Amount : <%= data.loan_amt %>.
+Your Due amount for this Month : <%= due %>. 
+Current Balance : <%= data.current_bal %>
+Your Next Due Date : <%= data.dueDate %>.
+                </textarea>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-outline-info"  type="submit">send Message</button>
+    </form>
+</div>
+
+
+<style>
+    .details{
+        margin-left: 50px;
+    }
+    @media only screen and (max-width: 600px) {
+      .details{
+        margin-left: 20px;
+    }
+    }
+
+    .container-message{
+        width: 500px;
+    }
+    .msg{
+        background-color: aliceblue;
+        border-radius: 5px;
+        padding: 10px;
+    }
+</style>
+
+
+<%- include('partials/endblock') %>

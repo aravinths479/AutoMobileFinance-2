@@ -1,0 +1,79 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+	<br><br><br>
+    <br><br><br>
+
+
+    <h3>Messaging</h3>
+
+    <div class="card ">
+        <div class="table-responsive ">
+          <table class="table align-items-center mb-0 ">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Vehicle Number</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Due Date</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Send Message</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+                <% for(let i of data) { %>
+
+              <tr>
+                <td>
+                  <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                      <h5 class="mb-0 text-xs"><%= i.name %></h5>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0"><%= i.vnum %></p>
+                </td>
+                <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0"><%= i.pnum %></p>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-normal"><%= i.dueDate %></span>
+                </td>
+                <td class="align-middle text-center">
+                    <a href="/message/<%= i._id %>" class="btn btn-sm btn-outline-info  text-secondary font-weight-normal text-xs msg-link" data-toggle="tooltip" data-original-title="Edit user">
+                        Send Message
+                      </a>
+                  </td>
+                
+              </tr>
+      
+
+              <% } %> 
+                
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+<style>
+    .card{
+        border: 1px solid blue ;
+       
+        color: black;
+    }
+  
+</style>
+
+
+
+
+
+
+
+
+ <%- include('partials/endblock') %>

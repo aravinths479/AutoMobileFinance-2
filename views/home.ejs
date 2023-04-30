@@ -14,10 +14,10 @@
 <br><br><br><br>
 <div class="container">
   <% for(let i of lender) { %>
-    <a class="card2" href="#">
+    <a class="card2" href="/edit-lender/<%= i._id %>">
       <h3><%= i.name %></h3>
       <h3><%= i.vnum %></h3>
-      <p class="small">Card description with lots of great facts and interesting details.</p>
+      <p class="small"><strong>Balance Due Date : </strong><strong><%= i.dueDate %></strong></p>
       <div class="go-corner" href="#">
         <div class="go-arrow">
           →

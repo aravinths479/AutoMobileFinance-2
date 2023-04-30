@@ -1,0 +1,244 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+	<br><br><br>
+
+<section>
+	<div class="container py-4">
+	  <div class="row">
+		<div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+		  <h3 class="text-center">Manage Customer Details</h3>
+		  <br>
+		  
+
+		  <form role="form" action="/edit-lender/<%= data._id %>" method="post" id="contact-form"  autocomplete="off">
+
+			<div class="card-body">
+			  <div class="row">
+				
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Personal Details</h6>
+				</div><br>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Vehicle Number</label>
+						<input type="text" value="<%= data.vnum %>" name="vnum" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Name</label>
+						<input type="text" value="<%= data.name %>" name="name" style="text-transform:uppercase" class="form-control">
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Mobile Number</label>
+						<input type="text" value="<%= data.pnum %>" name="pnum" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Aadhar</label>
+						<input type="number" value="<%= data.aadhar %>" name="aadhar" class="form-control">
+					</div>
+				</div>
+			</div>
+			  	<br>
+			  
+			  <div class="row">
+				
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Address</h6>
+				</div><br>
+				
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Street</label>
+						<input type="text" value="<%= data.street %>" name="street" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>city</label>
+						<input type="text" value="<%= data.city %>" name="city" class="form-control">
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>State</label>
+						<input type="text" value="<%= data.state %>" name="state" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Postel Code</label>
+						<input type="text" value="<%= data.zip %>" name="zip" class="form-control">
+					</div>
+				</div>
+			</div>
+			  <br>
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Loan Details</h6>
+				</div><br><br>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Loan Amount</label>
+						<input type="number" value="<%= data.loan_amt %>" name="loan_amt" id="principal" oninput="calculate()" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Interest</label>
+						<input type="number" name="duration" value="<%= data.duration %>" id="rate" oninput="calculate()" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Duration</label>
+						<input type="number" name="interest"  id="time" oninput="calculate()" value="<%= data.interest %>" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Current Balance</label>
+						<input type="number" name="current_bal"    value="<%= data.current_bal %>" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group input-group-static mb-4">
+						<label>Due Date</label>
+						<input type="date" name="dueDate"    value="<%= data.dueDate %>" class="form-control">
+					</div>
+				</div>
+				
+			
+			  </div>
+			  <br>
+			
+			  <div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Data</h6>
+				</div><br>
+				
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="mb-3">
+						<p >Interest Per Month     : ₹     <span id="intepermonth">  </span>  </p>
+						<p > Total Interest    : ₹  <span id="interest"></span></p>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="mb-3">
+						<p >Total Amount    : ₹  <span id="due"></span></p>
+						<p >Due Amount    : ₹     <span id="Duee">  </span>  </p>
+					</div>
+				</div>
+
+				
+			  </div>
+			  <br>
+
+			  <div class="row">
+				
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<h6 class="mb-2 text-primary">Paid Record Deatils</h6>
+				</div><br>
+		
+				  <table id="myTable" class="table align-items-center mb-0">
+					<% for(var i in data.paid_record) { %>
+					<tr>
+					  <td>
+						<div class="col-md-17">
+						  <div class="input-group input-group-static mb-4">
+							<input type="text" value="<%= data.paid_record[i] %>" placeholder="Enter details" name="paid_record[]"  class="form-control">
+						  </div>
+						</div>
+					  </td>
+					  <td>
+
+						<button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+					  </td>
+					</tr>
+					<% } %>
+				  </table>
+				  <button type="button" class="btn bg-gradient-dark w-25" onclick="addRow()">Add row</button>
+		
+			</div>
+			  <br><br>
+			  <div class="row">
+				<div class="col-md-12">
+				  <button type="submit" class="btn bg-gradient-dark w-100">Save Changes</button>
+				</div>
+			  </div>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+  <style>
+	input[type=file]{
+		border: 1px solid black;
+		padding: 6px;
+	}
+	
+  </style>
+
+  
+<script>
+
+	function deleteRow(btn) {
+		var row = btn.parentNode.parentNode;
+		row.parentNode.removeChild(row);
+	  }
+	  
+	  
+
+	function addRow() {
+		var table = document.getElementById("myTable");
+		var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		cell1.innerHTML = `
+		<tr>
+			<td><div class="col-md-6">
+			  <div class="input-group input-group-static mb-4">
+				  <input type="number" value="" name="paid_record[]"  class="form-control">
+			  </div>
+		  </div></td>
+		  </tr>
+		` ;
+	  }			  
+
+	
+	
+    function calculate() {
+        var principal = document.getElementById("principal").value;
+        var rate = document.getElementById("rate").value;
+        var time = parseInt(document.getElementById("time").value);
+        var interest = (principal * rate * time) / (100);
+        // var prin = (principal / rate)/ time;
+        // var inte = (interest / time);
+        // var dueamount = (due / time)
+        var due =parseInt( parseInt(principal)+parseInt(interest));
+        var times=parseInt(document.getElementById('duration'))
+        var dueamount = due/rate;
+        var interestpermonth = interest/rate;
+        document.getElementById("interest").innerHTML =" "+ interest;
+        document.getElementById("due").innerHTML =" "+ due;
+        document.getElementById("Duee").innerHTML =" "+ Math.round(dueamount);
+        document.getElementById("intepermonth").innerHTML =" "+ interestpermonth;
+    }
+
+	setTimeout(function(){
+		calculate();
+	},300)
+      
+</script>
+
+<%- include('partials/endblock') %>

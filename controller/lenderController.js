@@ -2,7 +2,7 @@ const Lender = require("../models/Lender")
 
 
 exports.getAddLender = (req,res)=>{
-    res.render('addLender')
+    res.render('addLender', {user:req.user})
   }
 
 exports.postAddLender = (req,res)=>{
@@ -21,9 +21,10 @@ exports.postAddLender = (req,res)=>{
         res.redirect("/home")
       }
     })
-    
-
 }
+
+
+
 
 
 // exports.postAddLender = (req,res)=>{

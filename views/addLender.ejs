@@ -12,7 +12,7 @@
 		  <br>
 		  
 
-		  <form role="form" action="/lender/add-lender" id="contact-form" method="post" autocomplete="off">
+		  <form role="form" action="/lender/add-lender" method="post" enctype="multipart/form-data" id="contact-form"  autocomplete="off">
 
 			<div class="card-body">
 			  <div class="row">
@@ -29,7 +29,7 @@
 				<div class="col-md-6 ps-2">
 				  <div class="input-group input-group-dynamic">
 					<label class="form-label">Name</label>
-					<input type="text" class="form-control" name="name" placeholder="" aria-label="Last Name..." >
+					<input type="text" class="form-control" name="name" placeholder="" style="text-transform:uppercase" aria-label="Last Name..." >
 				  </div>
 				</div>
 				<div class="col-md-6 ps-2">
@@ -143,16 +143,11 @@
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 					<div class="mb-3">
 						<label for="formFileMultiple" class="form-label ">Aadhar </label>
-						<input class="form-control " type="file" id="formFileMultiple" accept="image/*,.pdf" multiple>
+						<input class="form-control " type="file" name="file" id="formFileMultiple" accept="image/*,.pdf" multiple>
 						
 					</div>
 				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-					<div class="mb-3">
-						<label for="formFileMultiple" class="form-label">RC Book</label>
-						<input class="form-control" type="file" id="formFileMultiple" accept="image/*,.pdf" multiple>
-					</div>
-				</div>
+				
 				
 			  </div>
 
@@ -185,9 +180,7 @@
         var rate = document.getElementById("rate").value;
         var time = parseInt(document.getElementById("time").value);
         var interest = (principal * rate * time) / (100);
-        // var prin = (principal / rate)/ time;
-        // var inte = (interest / time);
-        // var dueamount = (due / time)
+        
         var due =parseInt( parseInt(principal)+parseInt(interest));
         var times=parseInt(document.getElementById('duration'))
         var dueamount = due/rate;

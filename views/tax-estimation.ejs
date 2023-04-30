@@ -1,0 +1,118 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<br><br><br><br><br>
+
+
+    <title>Tax Estimation Bar Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  
+    <h1>Tax Estimation Bar Graph</h1>
+    <form onsubmit="return generateGraph()" action="/tax-estimation" method="post">
+
+     
+      <div class="card ">
+        <div class="table-responsive ">
+      <table class="table align-items-center mb-0 ">
+        <tr>
+            <td> <label for="income">Enter your taxable income</label></td>
+            <td>
+                <div class="input-group input-group-dynamic mb-4">
+                <input type="number" class="form-control" id="income" placeholder="Income" name="income" required >
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td> <label for="expenses">Enter your total business expenses</label></td>
+            <td>
+                <div class="input-group input-group-dynamic mb-4">
+                <input type="number" class="form-control" id="expenses" placeholder="Expences" name="expenses" required>
+            </div>    
+            </td>
+        </tr>
+        <tr>
+            <td> <label for="deductions">Enter your total deductions</label></td>
+            <td>
+                <div class="input-group input-group-dynamic mb-4">
+                <input type="number" class="form-control" id="deductions" placeholder="Deductions" name="deductions" required> 
+            </div>    
+            </td>
+        </tr>
+        <tr>
+            <td><label for="avg-tax-rate">Enter the average tax rate</label></td>
+            <td> 
+                <div class="input-group input-group-dynamic mb-4">
+                <input type="number" class="form-control" id="avg-tax-rate" placeholder="Average Tax Rate" name="rate" required>
+            </div>    
+            </td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <br><br>
+      <input type="submit" class="btn btn-outline-info" value="Estimate Tax">
+      <button class="btn btn-outline-info" type="submit">Save and Exit</button>
+    </form>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+      function generateGraph() {
+        let income = document.getElementById("income").value;
+        let expenses = document.getElementById("expenses").value;
+        let deductions = document.getElementById("deductions").value;
+        let avgTaxRate = document.getElementById("avg-tax-rate").value;
+
+        let taxableIncome = income - expenses - deductions;
+        let estimatedTax = taxableIncome * (avgTaxRate / 100);
+
+        let data = {
+          labels: ["Taxable Income", "Estimated Tax"],
+          datasets: [
+            {
+              label: "Tax Estimation",
+              backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
+              borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+              borderWidth: 1,
+              data: [taxableIncome, estimatedTax]
+            }
+          ]
+        };
+        let options = {
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true
+                }
+              }
+            ]
+          }
+        };
+        let myChart = new Chart(document.getElementById("myChart"), {
+          type: "bar",
+          data: data,
+          options: options
+        });
+
+        return false; // prevent form submission
+      }
+
+    
+
+    </script>
+
+    
+<style>
+    .card{
+        border: 1px solid blue ;
+       
+        color: black;
+    }
+  
+</style>
+
+
+
+
+
+<%- include('partials/endblock') %>

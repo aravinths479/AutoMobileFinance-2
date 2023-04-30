@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="my-form">
+        <div id="rows-container">
+          <div class="row">
+            <input type="text" name="name[]" placeholder="Name">
+            <input type="text" name="email[]" placeholder="Email">
+          </div>
+        </div>
+        <button type="button" onclick="addRow()">Add row</button>
+        <button type="submit" onclick="submitForm()">Submit</button>
+      </form>
+    
+      <script>
+        function addRow() {
+            var container = document.getElementById("rows-container");
+            var row = document.createElement("div");
+            row.className = "row";
+            row.innerHTML = '<input type="text" name="name[]" placeholder="Name"><input type="text" name="email[]" placeholder="Email">';
+            container.appendChild(row);
+          }
+          
+          function submitForm() {
+            var form = document.getElementById("my-form");
+            var formData = new FormData(form);
+            var jsonData = {};
+          
+            for (var pair of formData.entries()) {
+              var name = pair[0];
+              var value = pair[1];
+              if (jsonData[name]) {
+                jsonData[name].push(value);
+              } else {
+                jsonData[name] = [value];
+              }
+            }
+          
+            fetch("/submit-form", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(jsonData)
+            }).then(function(response) {
+              if (response.ok) {
+                alert("Data saved successfully!");
+              } else {
+                alert("Error saving data.");
+              }
+            });
+          }
+          
+      </script>
+</body>
+</html>

@@ -10,6 +10,7 @@ const User = require('../models/User');
 exports.getAccount = (req,res) =>{
   const { companyName, pnum, tin, accno, ifsc ,email,street,city, zip, state } = req.user; 
   res.render("showCompanyDetails",{
+    user:req.user,  
     companyName:companyName , pnum:pnum, tin:tin, accno:accno, ifsc:ifsc , email:email, city:city ,state: state,zip:zip ,street:street
   })
 }
@@ -18,6 +19,7 @@ exports.getEditAccount = (req,res)=>{
   const { companyName, pnum, tin, accno, ifsc ,email,street,city, zip, state } = req.user; 
   res.render('editCompanyDetails',{
     page_name:"account",
+    user:req.user,
     companyName:companyName , pnum:pnum, tin:tin, accno:accno, ifsc:ifsc , email:email, city:city ,state: state,zip:zip ,street:street }
   )
 }
@@ -123,5 +125,5 @@ exports.postRegister = (req,res,next) => {
 exports.getLogout = (req,res) => {
     req.logout();
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/users/login');
+  res.redirect('/');
 }

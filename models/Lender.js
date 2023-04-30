@@ -51,6 +51,14 @@ const LenderSchema = new mongoose.Schema({
     required: false,
     default:""
   },
+  current_bal:{
+    type:String,
+    required:false,
+  },
+  paid_record:{
+    type:[Number],
+    required:false
+  },
   duration: {
     type: Number,
     required: false,
@@ -59,6 +67,11 @@ const LenderSchema = new mongoose.Schema({
   interest: {
     type: String,
     required: false,
+    default:""
+  },
+  dueDate:{
+    type:String,
+    required:false,
     default:""
   },
   pnum: {
@@ -71,6 +84,11 @@ const LenderSchema = new mongoose.Schema({
     required: false,
     default:""
   },
+  isClosed:{
+    type:Boolean,
+    default:false,
+    required:false
+  }
 
 });
 

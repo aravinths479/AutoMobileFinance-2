@@ -23,7 +23,7 @@ async function(request, accessToken, refreshToken, profile, done) {
     const newUser = new User({
       
       email: profile.emails[0].value,
-      password:"asdfghjkl"
+      password:"dsxfghyugdgfhjiokfdzxf"
     });
     // Save new user object to database
     await newUser.save();
