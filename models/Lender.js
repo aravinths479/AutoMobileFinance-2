@@ -9,17 +9,15 @@ const LenderSchema = new mongoose.Schema({
   name:{
     type: String,
     required: true,
-    default:""
+    
   },
   vnum:{
     type:String,
     required:true,
-    default:""
   },
   pnum: {
     type: String,
-    required: false,
-    default:""
+    required: true,
   },
   aadhar: {
     type: String,
@@ -28,6 +26,7 @@ const LenderSchema = new mongoose.Schema({
   },
   street : {
     type: String,
+    required:false,
     default:""
   },
   city : {

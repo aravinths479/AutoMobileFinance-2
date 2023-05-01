@@ -206,9 +206,7 @@ app.get("/closed-balances",ensureAuthenticated,(req,res)=>{
         lender:lender,
         user:req.user,
         page_name:"home"})
-})
-
-
+ })
 })
 
 

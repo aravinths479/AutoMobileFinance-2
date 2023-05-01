@@ -1,12 +1,11 @@
 const Lender = require("../models/Lender")
 
-
 exports.getAddLender = (req,res)=>{
     res.render('addLender', {user:req.user})
   }
 
 exports.postAddLender = (req,res)=>{
-  
+  console.log(req.body);
   const {name,vnum,pnum,aadhar,street,city,state,zip,loan_amt,duration,interest,check_leaf} = req.body;
   const email = req.user.email;
   Lender.create({email:email,name:name , pnum:pnum,  city:city ,state: state,zip:zip ,
