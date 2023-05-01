@@ -200,6 +200,16 @@ app.get("/close-balance/:id",ensureAuthenticated,(req,res)=>{
     })
 })
 
+app.get("/closed-balances",ensureAuthenticated,(req,res)=>{
+  Lender.find({},(err,lender)=>{
+    res.render('closedBalances', {
+        lender:lender,
+        user:req.user,
+        page_name:"home"})
+})
+
+
+})
 
 
 

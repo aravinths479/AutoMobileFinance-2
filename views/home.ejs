@@ -32,31 +32,7 @@
   
 
 
-  <center><h1 class="display-6">Closed Balances</h1></center>
-
-  <br><br><br><br>
-<div class="container ">
-  <% for(let i of lender) { %>
-    <% if (i.isClosed == true) { %>
-      
-    <a class="card2 " href="/edit-lender/<%= i._id %>">
-      
-      <h3><%= i.name %></h3>
-      <h3><%= i.vnum %></h3>
-      <p class="small"><strong>Balance Due Date : </strong><strong><%= i.dueDate %></strong></p>
-      <div class="go-corner" href="#">
-        <div class="go-arrow">
-          →
-        </div>
-      </div>
-    
-    </a>
   
-    <% } %>
-
-    <% } %> 
-  </div>
-
 
 
 </body>
