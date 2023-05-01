@@ -187,6 +187,19 @@ app.post("/tax-estimation",ensureAuthenticated,(req,res)=>{
     })
 })
 
+app.get("/close-balance/:id",ensureAuthenticated,(req,res)=>{
+  const _id = req.params.id;
+  Lender.updateOne({_id},{$set:{isClosed:true}})
+    .then((data)=>{
+      console.log(data);
+      res.redirect("/home")
+    })
+    .catch((err)=>{
+      console.log(err);
+      res.redirect("/home")
+    })
+})
+
 
 
 

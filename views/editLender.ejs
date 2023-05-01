@@ -172,6 +172,9 @@
 			  <div class="row">
 				<div class="col-md-12">
 				  <button type="submit" class="btn bg-gradient-dark w-100">Save Changes</button>
+				  <% if (data.isClosed == false) { %>
+				  <a type="submit" href="/close-balance/<%= data._id %>" class="btn bg-gradient-danger w-100">Close Balance</a>
+				  <% } %>
 				</div>
 			  </div>
 			</div>
