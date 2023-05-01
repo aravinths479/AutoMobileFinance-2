@@ -175,8 +175,8 @@ app.get("/tax-estimation",ensureAuthenticated,(req,res)=>{
 
 app.post("/tax-estimation",ensureAuthenticated,(req,res)=>{
   console.log(req.body);
-  const {income,expenses,deductions,rate} = req.body
-  Tax.create({taxableIncome:income,businessExpence:expenses,deductions:deductions,taxRate:rate})
+  const {income,expenses,deductions,rate,financialYear} = req.body
+  Tax.create({taxableIncome:income,businessExpence:expenses,deductions:deductions,taxRate:rate,financialYear:financialYear})
     .then((data)=>{
       console.log(data);
       res.redirect("/home")

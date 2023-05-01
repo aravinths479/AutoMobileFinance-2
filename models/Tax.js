@@ -18,6 +18,10 @@ const TaxSchema = new mongoose.Schema({
   taxRate:{
     type:String,
     required:true
+  },
+  financialYear:{
+    type:String,
+    required:true
   }
   
 });

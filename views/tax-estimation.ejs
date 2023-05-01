@@ -4,17 +4,33 @@
 <br><br><br><br><br>
 
 
-    <title>Tax Estimation Bar Graph</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+ 
   
-    <h1>Tax Estimation Bar Graph</h1>
+    <h1>Tax Estimation </h1>
     <form onsubmit="return generateGraph()" action="/tax-estimation" method="post">
 
      
       <div class="card ">
         <div class="table-responsive ">
       <table class="table align-items-center mb-0 ">
+        <tr>
+          <td> <label >Financial Year</label></td>
+          <td>
+            <div class="input-group input-group-static mb-4">
+              <label for="exampleFormControlSelect1" class="ms-0">Financial Year</label>
+              <select class="form-control" id="exampleFormControlSelect1" name="financialYear" required>
+                <option value="2019 - 2020">2019 - 2020 </option>
+                <option value="2020 - 2021">2020 - 2021</option>
+                <option value="2021 - 2022">2021 - 2022</option>
+                <option value="2022 - 2023">2022 - 2023</option>
+                <option value="2023 - 2024">2023 - 2024</option>
+              </select>
+            </div>
+          </div>
+          </td>
+      </tr>
         <tr>
             <td> <label for="income">Enter your taxable income</label></td>
             <td>
