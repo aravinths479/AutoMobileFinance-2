@@ -88,19 +88,19 @@
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Loan Amount</label>
-						<input type="number" value="<%= data.loan_amt %>" name="loan_amt" id="principal" oninput="calculate()" class="form-control">
+						<input type="number" min="100" max="1000000" value="<%= data.loan_amt %>" name="loan_amt" id="principal" oninput="calculate()" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Interest</label>
-						<input type="number" name="duration" value="<%= data.duration %>" id="rate" oninput="calculate()" class="form-control">
+						<input type="number" name="duration"  value="<%= data.duration %>" id="rate" oninput="calculate()" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Duration</label>
-						<input type="number" name="interest"  id="time" oninput="calculate()" value="<%= data.interest %>" class="form-control">
+						<input type="number" name="interest" max="48"  id="time" oninput="calculate()" value="<%= data.interest %>" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -209,11 +209,17 @@
 		var cell2 = row.insertCell(1);
 		cell1.innerHTML = `
 		<tr>
-			<td><div class="col-md-6">
-			  <div class="input-group input-group-static mb-4">
-				  <input type="number" value="" name="paid_record[]"  class="form-control">
+			<td>
+			  <div class="col-md-17">
+				<div class="input-group input-group-static mb-4">
+				  <input type="text"  placeholder="Enter details" name="paid_record[]"  class="form-control">
+				</div>
 			  </div>
-		  </div></td>
+			</td>
+			<td>
+
+			  <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+			</td>
 		  </tr>
 		` ;
 	  }			  

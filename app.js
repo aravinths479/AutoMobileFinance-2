@@ -154,12 +154,17 @@ const sendMessage = (body,pnum) =>{
   const accountSid = process.env.ACCOUNT_SID;
   const authToken = process.env.AUTH_TOKEN_TWILIO;
   const client = require("twilio")(accountSid, authToken);
-  client.messages
+  try{
+    client.messages
     .create({ body: body, from: "+16073502781", to: `+91${pnum}` })
       .then((message) =>{
         console.log(message.sid);
         
       } );
+  }
+  catch(err){
+    console.error(`Error sending SMS: ${err}`);
+  }
       
 }
 

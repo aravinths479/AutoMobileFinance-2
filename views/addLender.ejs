@@ -82,13 +82,13 @@
 				<div class="col-md-6">
 				  <div class="input-group input-group-dynamic mb-4">
 					<label class="form-label">Loan Amount</label>
-					<input class="form-control" name="loan_amt" id="principal" oninput="calculate()" aria-label="First Name..." type="text" required>
+					<input class="form-control" name="loan_amt" id="principal" oninput="calculate()" min="100"  max="100000" aria-label="First Name..." type="number" required>
 				  </div>
 				</div>
 				<div class="col-md-6 ps-2">
 				  <div class="input-group input-group-dynamic">
 					<label class="form-label">Duration</label>
-					<input type="text" class="form-control" name="duration" id="rate" oninput="calculate()" placeholder="" aria-label="Last Name..." required>
+					<input type="text" class="form-control" name="duration" id="rate" oninput="calculate()" min="2" max="48" type="number" placeholder="" aria-label="Last Name..." required>
 				  </div>
 				</div>
 			
@@ -155,7 +155,7 @@
 			  <br><br>
 			  <div class="row">
 				<div class="col-md-12">
-				  <button type="submit" class="btn bg-gradient-dark w-100">Add customer</button>
+				  <button type="submit" class="btn btn-info bg-gradient-dark w-100">Add customer</button>
 				</div>
 			  </div>
 			</div>
