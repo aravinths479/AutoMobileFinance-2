@@ -150,29 +150,39 @@ app.get("/message/:id",ensureAuthenticated,(req,res)=>{
       })
 })
 
-const sendMessage = (body,pnum) =>{
+const sendMessage = async (body, pnum) => {
   const accountSid = process.env.ACCOUNT_SID;
   const authToken = process.env.AUTH_TOKEN_TWILIO;
   const client = require("twilio")(accountSid, authToken);
-  try{
-    client.messages
-    .create({ body: body, from: "+16073502781", to: `+91${pnum}` })
-      .then((message) =>{
-        console.log(message.sid);
-        
-      } );
-  }
-  catch(err){
-    console.error(`Error sending SMS: ${err}`);
-  }
-      
-}
 
-app.post("/send-message/:pnum",ensureAuthenticated,async (req,res)=>{
-  const pnum = req.params.pnum 
-  sendMessage(req.body.msg,pnum);
-  res.redirect("/messaging")
-})
+  try {
+    const message = await client.messages.create({
+      body: body,
+      from: "+16073502781",
+      to: `+91${pnum}`,
+    });
+
+    console.log(message.sid);
+  } catch (err) {
+    console.error(`Error sending SMS: ${err.message}`);
+    // Handle the error gracefully, log it, or perform other actions.
+  }
+};
+
+app.post("/send-message/:pnum", ensureAuthenticated, async (req, res) => {
+  const pnum = req.params.pnum;
+
+  try {
+    await sendMessage(req.body.msg, pnum);
+    req.flash("success_msg", "Message sent successfully!");
+    res.redirect("/messaging");
+  } catch (err) {
+    console.log(err);
+    req.flash("error_msg", "Error sending message. Please try again.");
+    res.status(500).send("Error sending SMS");
+  }
+});
+
 
 app.get("/tax-estimation",ensureAuthenticated,(req,res)=>{
   return res.render("tax-estimation",{user:req.user})

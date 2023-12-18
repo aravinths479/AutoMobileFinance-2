@@ -29,20 +29,20 @@
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Name</label>
-						<input type="text" value="<%= data.name %>" name="name" style="text-transform:uppercase" class="form-control">
+						<input type="text" value="<%= data.name %>" name="name" maxlength="20" minlength="1" style="text-transform:uppercase" class="form-control">
 					</div>
 				</div>
 				
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Mobile Number</label>
-						<input type="text" value="<%= data.pnum %>" name="pnum" class="form-control">
+						<input type="text" value="<%= data.pnum %>" name="pnum" pattern="[0-9]{10}" title="Phone Number should be exactly 10 digits and no spaces" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Aadhar</label>
-						<input type="number" value="<%= data.aadhar %>" name="aadhar" class="form-control">
+						<input type="number" value="<%= data.aadhar %>" name="aadhar" pattern="^\d{12}$" title="Enter valid format" class="form-control">
 					</div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Loan Amount</label>
-						<input type="number" min="100" max="1000000" value="<%= data.loan_amt %>" name="loan_amt" id="principal" oninput="calculate()" class="form-control">
+						<input type="number" min="10000" max="1000000" value="<%= data.loan_amt %>" name="loan_amt" id="principal" oninput="calculate()" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -100,19 +100,19 @@
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Duration</label>
-						<input type="number" name="interest" max="48"  id="time" oninput="calculate()" value="<%= data.interest %>" class="form-control">
+						<input type="number" name="interest" min="1" max="48"   id="time" oninput="calculate()" value="<%= data.interest %>" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Current Balance</label>
-						<input type="number" name="current_bal"    value="<%= data.current_bal %>" class="form-control">
+						<input type="number" name="current_bal" min="1" max="1000000"   value="<%= data.current_bal %>" class="form-control">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group input-group-static mb-4">
 						<label>Due Date</label>
-						<input type="date" name="dueDate"    value="<%= data.dueDate %>" class="form-control">
+						<input type="date" name="dueDate" id="date"   value="<%= data.dueDate %>" class="form-control">
 					</div>
 				</div>
 				
@@ -191,6 +191,10 @@
 	}
 	
   </style>
+  <script>
+	var today = new Date().toISOString().split('T')[0];
+	document.getElementById("date").setAttribute("min", today);
+  </script>
 
   
 <script>

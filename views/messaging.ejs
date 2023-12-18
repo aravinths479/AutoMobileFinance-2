@@ -8,6 +8,7 @@
 
     <h3>Messaging</h3>
 
+    <%- include ("./partials/messages"); %>
     <div class="card ">
         <div class="table-responsive ">
           <table class="table align-items-center mb-0 ">
@@ -24,6 +25,7 @@
 
 
                 <% for(let i of data) { %>
+                  <% if (i.isClosed == false) { %>
 
               <tr>
                 <td>
@@ -49,6 +51,8 @@
                   </td>
                 
               </tr>
+
+              <% } %>
       
 
               <% } %> 

@@ -28,19 +28,19 @@
 				<div class="col-md-6 ps-2">
 				  <div class="input-group input-group-dynamic">
 					<label class="form-label">Name</label>
-					<input type="text" class="form-control" name="name" placeholder="" style="text-transform:uppercase" aria-label="Last Name..." required>
+					<input type="text" class="form-control" name="name" placeholder="" maxlength="20" minlength="1" title="name should not be more than 20 characters" style="text-transform:uppercase" aria-label="Last Name..." required>
 				  </div>
 				</div>
 				<div class="col-md-6 ps-2">
 					<div class="input-group input-group-dynamic">
 					  <label class="form-label">Phone</label>
-					  <input type="text" class="form-control" name="pnum" placeholder="" aria-label="Last Name..." required>
+					  <input type="text" class="form-control" name="pnum" pattern="[0-9]{10}" title="Phone Number should be exactly 10 digits and no spaces" placeholder="" aria-label="Last Name..." required>
 					</div>
 				  </div>
 				  <div class="col-md-6 ps-2">
 					<div class="input-group input-group-dynamic">
 					  <label class="form-label">Aadhar</label>
-					  <input type="text" class="form-control" name="aadhar" placeholder="" aria-label="Last Name..." required>
+					  <input type="text" class="form-control" name="aadhar" pattern="^\d{12}$" title="Enter valid format" placeholder="" aria-label="Last Name..." required>
 					</div>
 				  </div>
 			  </div>
@@ -82,13 +82,13 @@
 				<div class="col-md-6">
 				  <div class="input-group input-group-dynamic mb-4">
 					<label class="form-label">Loan Amount</label>
-					<input class="form-control" name="loan_amt" id="principal" oninput="calculate()" min="100"  max="100000" aria-label="First Name..." type="number" required>
+					<input class="form-control" name="loan_amt" id="principal" oninput="calculate()" min="10000"  max="1000000" aria-label="First Name..." type="number" required>
 				  </div>
 				</div>
 				<div class="col-md-6 ps-2">
 				  <div class="input-group input-group-dynamic">
 					<label class="form-label">Duration</label>
-					<input type="text" class="form-control" name="duration" id="rate" oninput="calculate()" min="2" max="48" type="number" placeholder="" aria-label="Last Name..." required>
+					<input type="number" class="form-control" name="duration" id="rate" oninput="calculate()" min="1" max="48"  placeholder="" aria-label="Last Name..." required>
 				  </div>
 				</div>
 			
@@ -171,6 +171,8 @@
 		padding: 6px;
 	}
   </style>
+
+
 
   
 <script>

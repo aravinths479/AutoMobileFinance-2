@@ -40,7 +40,6 @@ exports.postUpdateAccount = (req,res) =>{
       return res.redirect("/users/account")
     }
   })
-
 }
 
 exports.postLogin = (req,res,next) =>{
